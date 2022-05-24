@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ipavlov-form-task/static/css/main.0a15f8c7.css",
+    "main.js": "/ipavlov-form-task/static/js/main.10b1f30a.js",
+    "static/js/787.5925d4fe.chunk.js": "/ipavlov-form-task/static/js/787.5925d4fe.chunk.js",
+    "static/media/cover.avif": "/ipavlov-form-task/static/media/cover.1f214b51c709b44ca6a1.avif",
+    "index.html": "/ipavlov-form-task/index.html",
+    "main.0a15f8c7.css.map": "/ipavlov-form-task/static/css/main.0a15f8c7.css.map",
+    "main.10b1f30a.js.map": "/ipavlov-form-task/static/js/main.10b1f30a.js.map",
+    "787.5925d4fe.chunk.js.map": "/ipavlov-form-task/static/js/787.5925d4fe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a15f8c7.css",
+    "static/js/main.10b1f30a.js"
+  ]
+}
