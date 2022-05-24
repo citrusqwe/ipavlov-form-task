@@ -1,0 +1,216 @@
+@mixin hide {
+  opacity: 0;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.3s;
+
+}
+@mixin show {
+  opacity: 1;
+  height: auto;
+  overflow: auto;
+  position: static;
+  transition: all 0.3s;
+}
+
+@import 'animate.css';
+
+@mixin md {
+  @media (max-width:768px) {
+    @content;
+  }
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form-wrapper {
+  height: 100%;
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  
+  @include md {
+    flex: 1;
+  }
+}
+
+.image-wrapper {
+  flex: 0.6;
+  max-height: 100vh;
+
+  @include md {
+    display: none;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  width: 100%;
+  transform: translateY(-5%);
+  font-weight: 500;
+
+  &__title {
+    font-size: 26px;
+    line-height: 28px;
+    animation: pulse 1s;
+  }
+
+  &__label {
+    margin-bottom: 20px;
+
+    .error {
+      @include hide;
+      color: red;
+      font-weight: 400;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 2px solid #909090;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+
+    animation: pulse 1s 0.5s;
+
+    &:invalid[focused="true"] ~ .error {
+      @include show;
+    }
+
+    &:focus-visible {
+      transition: border-color 0.3s;
+      border-color: #000;
+    }
+  }
+
+  &__button {
+    padding: 13px 15px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 6px;
+    font-size: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    animation: pulse 1s 1.5s;
+
+    &:focus, &:hover {
+      color: #000;
+      background-color: #fff;
+      border-color: #000;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    animation: pulse 1s 1s;
+  }
+
+  &__signup {
+    margin-top: 30px;
+  }
+
+  &__check {
+    padding: 5px;
+  }
+
+  &__remember {
+    padding-left: 25px;
+    margin-right: 10px;
+  }
+
+  &__title::placeholder, &__input::placeholder {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.custom-check {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;  
+  user-select: none;
+
+  &:focus {
+    .checkmark {
+      transition: all 0.3s;
+      border-width: 2px;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: -25px;
+    height: 18px;
+    width: 18px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #000;
+    transition: all 0.3s;
+
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 2px;
+      width: 3px;
+      height: 7px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .checkmark {
+    background-color: #000;
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+}
